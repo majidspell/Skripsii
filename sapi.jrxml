@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sapi" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1eff836d-60f1-4307-a1a3-a50449b3e7f4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT sapiterpilih.id AS kode_sapi, CONCAT( pemilik.namapemilik,  ' dengan id pemilik = ', pemilik.id ) AS keterangan_pemilik, lsm.totalunwe AS unweight, lsm.totalwe AS weight, lsm.jumlah AS sapi_terbaik_dengan_nilai_tertinggi
+FROM pemilik, sapi, sapiterpilih, lsm
+WHERE pemilik.id = sapi.pemilikid
+AND sapi.id = sapiterpilih.sapiid
+AND sapiterpilih.sapiid = lsm.sapiid;]]>
+	</queryString>
+	<field name="kode_sapi" class="java.lang.Integer"/>
+	<field name="keterangan_pemilik" class="java.lang.String"/>
+	<field name="unweight" class="java.lang.Float"/>
+	<field name="weight" class="java.lang.Float"/>
+	<field name="sapi_terbaik_dengan_nilai_tertinggi" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="508c7201-7ab1-4e0c-84c5-eed86f47c889" x="51" y="11" width="215" height="20"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Hasil Pemilihan Sapi]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="67927c52-a2cb-4fe7-8082-066c86a59c98" x="1" y="11" width="103" height="24"/>
+				<imageExpression><![CDATA["E:\\kabeh gambar\\icon\\picture\\crystal_project\\22x22\\actions\\agt_print.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="61c77457-b409-49f3-8189-08dea7291d73" x="0" y="12" width="51" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[     id sapi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3935605e-e5b2-4381-bdcb-3385c5a6e6ec" x="74" y="12" width="128" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[      keterangan pemilik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="73c8f47c-d0f8-44ff-a293-838447e46b06" x="202" y="12" width="77" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[      unweight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e6e137f-c78e-4334-a477-17ef58541d85" x="305" y="12" width="74" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    weight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="76d45429-a6da-443e-8c0b-620abe6effa2" x="391" y="12" width="164" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[sapi terbaik dengan nilai tertinggi]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="a51e2b7e-98b9-4eff-be51-3324a055caac" x="0" y="6" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="58e7f4a1-bcc3-463e-a731-abdfda6ecb06" x="0" y="36" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="0" y="7" width="1" height="29"/>
+			</line>
+			<line>
+				<reportElement uuid="41cccba6-460b-4634-908e-b36f829ed678" x="555" y="6" width="1" height="30"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="60" y="7" width="1" height="29"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="200" y="7" width="1" height="29"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="290" y="7" width="1" height="29"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="379" y="7" width="1" height="29"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="38a93892-7169-403b-bfe8-7b5b20d98609" x="74" y="0" width="128" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{keterangan_pemilik}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="76874193-9294-4564-a3bc-8d53fcce5829" x="215" y="0" width="64" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{unweight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2c269b77-2174-4f8d-a551-3a617faa4883" x="305" y="0" width="74" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dffa3991-efd1-4d2a-9c02-84d6146b01b8" x="406" y="0" width="149" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{sapi_terbaik_dengan_nilai_tertinggi}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="58e7f4a1-bcc3-463e-a731-abdfda6ecb06" x="0" y="19" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="0" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="60" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="200" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="290" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="379" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement uuid="59c997e8-cccc-4ee7-aaef-0a3db91e5b0f" x="555" y="0" width="1" height="20"/>
+			</line>
+			<textField>
+				<reportElement uuid="52430922-6755-4111-b6af-95f715fef208" x="16" y="0" width="36" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{kode_sapi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3acb514f-72ed-4c91-8e0a-720bccc21961" x="1" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

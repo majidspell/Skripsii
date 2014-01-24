@@ -1,0 +1,5 @@
+SELECT sapiterpilih.id AS kode_sapi, CONCAT( pemilik.namapemilik,  ' dengan id pemilik = ', pemilik.id ) AS keterangan_pemilik, lsm.totalunwe AS unweight, lsm.totalwe AS weight, lsm.jumlah AS sapi_terbaik_dengan_nilai_tertinggi
+FROM pemilik, sapi, sapiterpilih, lsm
+WHERE pemilik.id = sapi.pemilikid
+AND sapi.id = sapiterpilih.sapiid
+AND sapiterpilih.sapiid = lsm.sapiid;
